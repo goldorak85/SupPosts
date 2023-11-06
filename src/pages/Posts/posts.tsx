@@ -4,17 +4,7 @@ import {Post} from "../../dto/post";
 
 import axios from 'axios';
 
-function displayPosts(data: [Post]) {
-    const listItems = data.map((c) =>
-        <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>
-    );
-    return (
-        {listItems}
-    );
-}
-
-
-export default function Posts() {
+export default function posts() {
     let posts: [Post];
     axios.get('/api/post').then((response) => {
         posts = response.data;
@@ -25,7 +15,10 @@ export default function Posts() {
     return (
         <>
             <div className="bg-red">
-                {displayPosts(posts)}
+                {
+                    posts.map((c) =>
+                        <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>)
+                }
             </div>
         </>
     )
