@@ -5,9 +5,16 @@ export async function onRequestPost({ request, env }) {
     const body: Comment = await request.body;
     body.id = uuid();
     body.like = 0;
-    const post = await env.comment.put(body.id, body);
-    console.log(post);
-    return new Response(JSON.stringify(post), {
+    const data: Comment = {
+        id: uuid(),
+        like: 0,
+        postID: body.postID,
+        author: body.author,
+        content: body.content
+    }
+    const comment = await env.comment.put(data.id, JSON.stringify(data));
+    console.log(comment);
+    return new Response(JSON.stringify(data), {
         headers: {
             'Content-Type': 'application/json'
         }
