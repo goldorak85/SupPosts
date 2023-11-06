@@ -6,6 +6,7 @@ export async function onRequestPost({ request, env }) {
     body.id = uuid();
     body.like = 0;
     const post = await env.comment.put(body.id, body);
+    console.log(post);
     return new Response(JSON.stringify(post), {
         headers: {
             'Content-Type': 'application/json'
@@ -25,6 +26,7 @@ export async function onRequestGet({request, env}) {
         const comment = JSON.parse(await env.comment.get(rkeys[i].name));
         if (comment.postID === id) result.push(comment);
     }
+    console.log(result);
     return new Response(JSON.stringify(result), {
         headers: {
             'Content-Type': 'application/json'

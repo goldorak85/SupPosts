@@ -6,6 +6,7 @@ export async function onRequestPost({ request, env }) {
     body.id = uuid();
     body.like = 0;
     const post = await env.posts.put(body.id, body);
+    console.log(post);
     return new Response(JSON.stringify(post), {
         headers: {
             'Content-Type': 'application/json'
@@ -31,6 +32,7 @@ export async function onRequestGet({request, env}) {
         // eslint-disable-next-line no-await-in-loop
         result.push(JSON.parse(await env.posts.get(rkeys[i].name)));
     }
+    console.log(result);
     return new Response(JSON.stringify(result), {
         headers: {
             'Content-Type': 'application/json'
