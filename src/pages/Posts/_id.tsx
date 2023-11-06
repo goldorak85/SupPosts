@@ -3,7 +3,7 @@ import Post from "../../components/Post";
 import { useParams } from 'react-router-dom';
 
 export default function PostById() {
-    const { id } = useParams();
+    const { id }: string = useParams();
 
     return (
         <>
