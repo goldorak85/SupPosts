@@ -4,9 +4,9 @@ import {Post} from "../../dto/post";
 
 import axios from 'axios';
 
-export default async function posts() {
+export default function posts() {
     let posts: [Post] = [{id: "0", author: "0", content: "0", like: 0}];
-    await axios.get('/api/post').then((response) => {
+    axios.get('/api/post').then((response) => {
         posts = response.data;
     }).catch((error) => {
         console.log(error);
