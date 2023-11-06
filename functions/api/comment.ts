@@ -2,7 +2,7 @@ import { Comment } from "../../src/dto/comment";
 import { uuid } from '@cfworker/uuid';
 
 export async function onRequestPost({ request, env }) {
-    const body: Comment = await request.body;
+    const body: Comment = JSON.parse(await request.body);
     body.id = uuid();
     body.like = 0;
     const data: Comment = {

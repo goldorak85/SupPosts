@@ -2,7 +2,7 @@ import { Post } from "../../src/dto/post";
 import { uuid } from '@cfworker/uuid';
 
 export async function onRequestPost({ request, env }) {
-    const body: Post = await request.body;
+    const body: Post = JSON.parse(await request.body);
     const data: Post = {
         id: uuid(),
         like: 0,
