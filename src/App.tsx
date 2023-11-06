@@ -1,11 +1,12 @@
 import './App.css'
-import Todo from './components/TodoList.tsx'
+import Counter from './components/Counter.tsx'
 
 function App() {
 
   return (
     <>
-        <Todo />
+        <h1>Vite + React</h1>
+        <Counter />
     </>
   )
 }
