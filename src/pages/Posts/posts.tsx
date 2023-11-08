@@ -7,7 +7,7 @@ import {useState} from "react";
 
 export default function posts() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [posts, setPosts]: [[Post], React.Dispatch<React.SetStateAction<Post[]>>] = useState([]);
+    const [posts, setPosts]: [[], React.Dispatch<React.SetStateAction<[]>>] = useState([]);
     axios.get('/api/post').then((response) => {
         setPosts(response.data);
     }).catch((error) => {
@@ -17,7 +17,7 @@ export default function posts() {
         <>
             <div className="bg-red">
                 {
-                    posts.map((c) =>
+                    posts.map((c: Post) =>
                         <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>)
                 }
             </div>
