@@ -8,7 +8,7 @@ export async function onRequestPost({ request, env }) {
     console.log(JSON.stringify(body));
     const u = await env.users.get(body.email);
     console.log(u);
-    if (!u || u !== null || u !== undefined) {
+    if (!u || u === null || u === undefined) {
         return new Response(JSON.stringify({error: 'User not found'}), {
             headers: {
                 'Content-Type': 'application/json'
