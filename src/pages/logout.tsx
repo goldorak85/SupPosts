@@ -1,5 +1,5 @@
 export default function Logout() {
-    localStorage.clear();
+    localStorage.setItem("user", "{}");
     window.location.href = "/";
     return (
         <>

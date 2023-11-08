@@ -4,6 +4,7 @@ import PostByID from "./pages/Posts/_id";
 import Register from "./pages/register";
 import Login from "./pages/login";
 import Logout from "./pages/logout";
+import Favorite from "./pages/Posts/favorite";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={
-                  (localStorage.getItem("user") === null) ? <Login /> : <PostsPage />} />
+                  (localStorage.getItem("user") === null || localStorage.getItem("user") == "{}") ? <Login /> : <PostsPage />} />
               <Route path="posts">
                   <Route path="" element={<PostsPage />}/>
                   <Route path=":id" element={<PostByID />}/>
@@ -20,6 +21,7 @@ function App() {
               <Route path="register" element={<Register />}/>
               <Route path="login" element={<Login />}/>
               <Route path="logout" element={<Logout />}/>
+              <Route path="favorite" element={<Favorite />}/>
           </Routes>
       </BrowserRouter>
   )
