@@ -32,17 +32,8 @@ export default function posts() {
                     <button onClick={() => {window.location.href = "/logout"}} className={"flex flex-inline text-red-600 bg-green-300 rounded pr-2 pl-2 ml-2"}>Logout</button>
                 </div>
                 {
-                    posts.map((c: Post) => {
-                        let display = false;
-                        favorite.forEach((v: string) => {
-                            if (v == c.id) {
-                                display = true;
-                            }
-                        })
-                            if (display) {
-                                <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>
-                            }
-                    })
+                    posts.map((c: Post) =>
+                        (favorite.includes(c.id)) ? <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/> : null)
                 }
             </div>
         </>
