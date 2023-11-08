@@ -15,7 +15,7 @@ export default function register() {
 
 
 
-    function login(e: unknown) {
+    function login(e: any) {
         e.preventDefault();
         setError(false);
         setMessage("");

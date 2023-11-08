@@ -18,7 +18,7 @@ export default function register() {
 
 
 
-    function register(e: unknown) {
+    function register(e: any) {
         e.preventDefault();
         setError(false);
         setMessage("");
