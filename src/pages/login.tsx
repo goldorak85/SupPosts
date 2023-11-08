@@ -29,7 +29,7 @@ export default function register() {
             localStorage.setItem("user", JSON.stringify(user));
             setTimeout(() => {
                 window.location.href = "/";
-            }, 2);
+            }, 2000);
         }).catch(() => {
             setError(true);
             setMessage("Une erreur lors de la connection c'est produit");
