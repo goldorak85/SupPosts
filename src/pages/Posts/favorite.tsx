@@ -32,17 +32,17 @@ export default function posts() {
                     <button onClick={() => {window.location.href = "/logout"}} className={"flex flex-inline text-red-600 bg-green-300 rounded pr-2 pl-2 ml-2"}>Logout</button>
                 </div>
                 {
-                    posts.filter((value: Post) => {
+                    posts.map((c: Post) => {
+                        let display = false;
                         favorite.forEach((v: string) => {
-                            console.log("V: "+v+" value.id: "+value.id);
-                            if (v == value.id) {
-                                console.log("OK");
-                                return true;
+                            if (v == c.id) {
+                                display = true;
                             }
                         })
-                        return false;
-                    }).map((c: Post) =>
-                        <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>)
+                            if (display) {
+                                <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>
+                            }
+                    })
                 }
             </div>
         </>
