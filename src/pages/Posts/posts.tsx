@@ -7,7 +7,7 @@ import {useState} from "react";
 
 export default function posts() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [posts, setPosts]: [Post[], React.Dispatch<React.SetStateAction<Post[]>>] = useState([]);
+    const [posts, setPosts]: [[Post], React.Dispatch<React.SetStateAction<Post[]>>] = useState([]);
     axios.get('/api/post').then((response) => {
         setPosts(response.data);
     }).catch((error) => {
