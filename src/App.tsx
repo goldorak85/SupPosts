@@ -5,6 +5,11 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+function logout(): boolean {
+    localStorage.clear();
+    return true;
+}
+
 function App() {
 
   return (
@@ -18,7 +23,7 @@ function App() {
               </Route>
               <Route path="register" element={<Register />}/>
               <Route path="login" element={<Login />}/>
-              <Route path="logout" element={(localStorage.clear()) ? <Login /> : <Login />}/>
+              <Route path="logout" element={(logout()) ? <Login /> : <Login />}/>
           </Routes>
       </BrowserRouter>
   )
