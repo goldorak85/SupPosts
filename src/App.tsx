@@ -3,12 +3,8 @@ import PostsPage from "./pages/Posts/posts";
 import PostByID from "./pages/Posts/_id";
 import Register from "./pages/register";
 import Login from "./pages/login";
+import Logout from "./pages/logout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-function logout(): boolean {
-    localStorage.clear();
-    return true;
-}
 
 function App() {
 
@@ -23,7 +19,7 @@ function App() {
               </Route>
               <Route path="register" element={<Register />}/>
               <Route path="login" element={<Login />}/>
-              <Route path="logout" element={(logout()) ? <Login /> : <Login />}/>
+              <Route path="logout" element={<Logout />}/>
           </Routes>
       </BrowserRouter>
   )
