@@ -32,8 +32,8 @@ export default function PostById() {
     return (
         <>
             <div>
-                <div className="flex flex-inline p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500">
-                    <p className={"flex flex-inline"}>Bonjour {user.name}</p>
+                <div className="flex flex-inline bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500">
+                    <p className={"flex flex-inline p-2"}>Bonjour {user.name}</p>
                     <button onClick={() => {window.location.href = "/logout"}} className={"flex flex-inline text-red-600 bg-green-300 rounded pr-2 pl-2 ml-2"}>Logout</button>
                 </div>
                 <PostComponent author={post.author} content={post.content} id={post.id} like={post.like}/>
