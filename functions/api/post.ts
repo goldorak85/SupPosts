@@ -1,12 +1,23 @@
 import { Post } from "../../src/dto/post";
 import { uuid } from '@cfworker/uuid';
+import jwt from "@tsndr/cloudflare-worker-jwt";
+import {User} from "../../src/dto/user";
 
 export async function onRequestPost({ request, env }) {
     const body: Post = await request.json();
+    const headers: Headers = await request.headers;
+    if (!headers.has("Authorization") || jwt.verify(headers.get("Authorization")?.split(" ")[1], env.secret)) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
     const data: Post = {
         id: uuid(),
         like: 0,
-        author: body.author,
+        author: jwt.decode(headers.get("Authorization")?.split(" ")[1]).payload.name,
         content: body.content
     }
     const post = await env.posts.put(data.id, JSON.stringify(data));
