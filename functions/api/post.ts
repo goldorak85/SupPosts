@@ -1,7 +1,6 @@
 import { Post } from "../../src/dto/post";
 import { uuid } from '@cfworker/uuid';
 import jwt from "@tsndr/cloudflare-worker-jwt";
-import {User} from "../../src/dto/user";
 
 export async function onRequestPost({ request, env }) {
     const body: Post = await request.json();
