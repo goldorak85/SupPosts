@@ -10,7 +10,8 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<PostsPage />}/>
+              <Route path="/" element={
+                  (localStorage.getItem("user") === null) ? <Login /> : <PostsPage />} />
               <Route path="posts">
                   <Route path="" element={<PostsPage />}/>
                   <Route path=":id" element={<PostByID />}/>

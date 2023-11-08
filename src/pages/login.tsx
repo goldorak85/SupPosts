@@ -24,9 +24,12 @@ export default function register() {
             email: email,
             password: password
         }).then((data) => {
-            setMessage("Vous etes maintenant connecté");
+            setMessage("Vous etes maintenant connecté, Redirection en cours...");
             const user: User = data.data;
             localStorage.setItem("user", JSON.stringify(user));
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2);
         }).catch(() => {
             setError(true);
             setMessage("Une erreur lors de la connection c'est produit");
