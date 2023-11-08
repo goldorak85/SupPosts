@@ -25,7 +25,7 @@ export default function posts() {
     return (
         <>
             <div className="bg-red">
-                <p className={"p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500"}>Bonjour ${user.name}</p>
+                <p className={"p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500"}>Bonjour {user.name} <a className="text-red-600" href="/logout">Logout</a></p>
                 {
                     posts.map((c: Post) =>
                         <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>)

@@ -18,6 +18,7 @@ function App() {
               </Route>
               <Route path="register" element={<Register />}/>
               <Route path="login" element={<Login />}/>
+              <Route path="logout" element={(localStorage.clear()) ? <Login /> : <Login />}/>
           </Routes>
       </BrowserRouter>
   )

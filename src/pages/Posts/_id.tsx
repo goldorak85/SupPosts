@@ -32,7 +32,7 @@ export default function PostById() {
     return (
         <>
             <div>
-                <p className={"p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500"}>Bonjour ${user.name}</p>
+                <p className={"p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500"}>Bonjour {user.name} <a className="text-red-600" href="/logout">Logout</a></p>
                 <PostComponent author={post.author} content={post.content} id={post.id} like={post.like}/>
             </div>
         </>
