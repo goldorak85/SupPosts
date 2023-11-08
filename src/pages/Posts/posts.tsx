@@ -3,11 +3,13 @@ import PostComponent from "../../components/Post";
 import {Post} from "../../dto/post";
 
 import axios from 'axios';
+import {useState} from "react";
 
 export default function posts() {
-    let posts: [Post] = [{id: "0", author: "0", content: "0", like: 0}];
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [posts, setPosts]: [Post[], React.Dispatch<React.SetStateAction<Post[]>>] = useState([]);
     axios.get('/api/post').then((response) => {
-        posts = response.data;
+        setPosts(response.data);
     }).catch((error) => {
         console.log(error);
     });
