@@ -34,6 +34,7 @@ export default function posts() {
                 {
                     posts.filter((value: Post) => {
                         favorite.forEach((v: string) => {
+                            console.log("V: "+v+" value.id: "+value.id);
                             if (v === value.id) {
                                 return true;
                             }
