@@ -25,7 +25,10 @@ export default function posts() {
     return (
         <>
             <div className="bg-red">
-                <p className={"p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500"}>Bonjour {user.name} <a className="text-red-600" href="/logout">Logout</a></p>
+                <div className="flex flex-inline p-2 bg-green-100 rounded top-0 right-0 absolute text-sm text-blue-500">
+                    <p className={"flex flex-inline"}>Bonjour {user.name}</p>
+                    <button onClick={() => {window.location.href = "/logout"}} className={"flex flex-inline text-red-600 bg-green-300 rounded pr-2 pl-2 ml-2"}>Logout</button>
+                </div>
                 {
                     posts.map((c: Post) =>
                         <PostComponent author={c.author} content={c.content} id={c.id} like={c.like}/>)
